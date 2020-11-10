@@ -1,7 +1,7 @@
 # React-todo-list   
 Сделаем ещё раз старую задачу, но с новыми знаниями.
 
-![asd](readme-assets/React-Ant-Design-Todo-List.png)
+![asd](readme-assets/React-Ant-Design-Todo-List.png)(https://ant.design/components/overview/)
 
 ## Release 0
 
