@@ -1,8 +1,7 @@
-# React-todo-list
+# React-todo-list   
+Сделаем ещё раз старую задачу, но с новыми знаниями.
 
 ![asd](readme-assets/React-Ant-Design-Todo-List.png)
-
-Сделаем ещё раз старую задачу, но с новыми знаниями.
 
 ## Release 0
 
