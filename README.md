@@ -1,3 +1,5 @@
+![asd](readme-assets/React-Ant-Design-Todo-List.png)
+
 # React-todo-list
 
 Сделаем ещё раз старую задачу, но с новыми знаниями.
