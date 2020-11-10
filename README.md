@@ -1,6 +1,6 @@
-![asd](readme-assets/React-Ant-Design-Todo-List.png)
-
 # React-todo-list
+
+![asd](readme-assets/React-Ant-Design-Todo-List.png)
 
 Сделаем ещё раз старую задачу, но с новыми знаниями.
 
