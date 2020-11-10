@@ -2,7 +2,7 @@
 Сделаем ещё раз старую задачу, но с новыми знаниями.
 
 ![asd](readme-assets/React-Ant-Design-Todo-List.png)
-[[readme-assets/React-Ant-Design-Todo-List.png]]
+
 ## Release 0
 
 Создать приложение с помощью create-react-app
