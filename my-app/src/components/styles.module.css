@@ -1,0 +1,10 @@
+.todoDone {
+    text-decoration: line-through;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 1px solid black
+  }
