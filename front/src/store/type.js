@@ -4,4 +4,5 @@ export const todoTypes = {
     SET_LIST: 'SET_LIST',
     ADD_LIST: 'ADD_LIST',
     LOADER: 'LOADER',
+    ERROR: "ERROR"
 }
