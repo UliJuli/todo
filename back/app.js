@@ -29,7 +29,7 @@ app.use(express.json());
 app.use(session(sessionConfig));
 
 // искуственная задержка
-// app.use(isTimeout)
+app.use(isTimeout)
 
 //роутеры
 app.use('/', homeRoutes);

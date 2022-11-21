@@ -10,7 +10,6 @@ export const ItemToDo = ({ todo, deleteHandler, doneHandler }) => {
                 <span>*</span>
                 <p className={styles.todoDone}>{todo.name}</p>
                 <button onClick={deleteHandler} name={todo.id} >delete</button>
-                <button name={todo.id} >edit</button>
             </div>)
             : (
                 <div className={styles.flex} key={todo.id}>
@@ -18,7 +17,6 @@ export const ItemToDo = ({ todo, deleteHandler, doneHandler }) => {
                     <span>-</span>
                     <p>{todo.name}</p>
                     <button onClick={deleteHandler} name={todo.id}>delete</button>
-                    <button name={todo.id}>edit</button>
                 </div>)
     )
 }
