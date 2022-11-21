@@ -14,11 +14,22 @@ export const deleteHandlerThunk = (id) => async (dispatch) => {
     dispatch(loadLoader(true))
     dispatch(setError(false));
     try {
-        await fetch(`http://localhost:3100/api/delete/${id}`, {
+        let res = await fetch(`http://localhost:3100/api/delete/${id}`, {
             method: 'DELETE',
             credentials: 'include',
           })
-          dispatch(deleteTodo(id));
+          while(res.status === 500) {
+             res = await fetch(`http://localhost:3100/api/delete/${id}`, {
+              method: 'DELETE',
+              credentials: 'include',
+            })
+          }
+          if(res.status === 200 ) {
+            dispatch(deleteTodo(id));
+          }
+          if(res.status === 400){
+            dispatch(setError('test'));
+          }
         } catch (err) {
             console.error("Err", err);
             dispatch(setError(err.message));
@@ -32,11 +43,23 @@ export const deleteHandlerThunk = (id) => async (dispatch) => {
     dispatch(loadLoader(true));
     dispatch(setError(false));
     try {
-        await fetch(`http://localhost:3100/api/change/${id}`, {
+        let res = await fetch(`http://localhost:3100/api/change/${id}`, {
             method: 'PUT',
             credentials: 'include',
         })
-        dispatch(doneTodo(id));
+        while(res.status === 500) {
+          res = await fetch(`http://localhost:3100/api/change/${id}`, {
+            method: 'PUT',
+            credentials: 'include',
+        })
+        console.log(res.status)
+        }
+        if(res.status === 200 ) {
+          dispatch(doneTodo(id));
+        }
+        if(res.status === 400){
+          dispatch(setError(test));
+        }
     } catch (err) {
         console.error("Err", err);
         dispatch(setError(err.message));
@@ -59,11 +82,26 @@ export const deleteHandlerThunk = (id) => async (dispatch) => {
       },
       body: JSON.stringify({text})
     })
-    const data = await res.json();
+    if(res.status === 500) {
+      const res = await fetch('http://localhost:3100/api/add', {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({text})
+    })
+    }
+    if(res.status === 200 ) {
+      const data = await res.json();
     if(data.newList[1]){
       dispatch(addTodo(data.newList[0]))
     } else {
       alert('Уже добавлено')
+    }
+    }
+    if(res.status === 400){
+      dispatch(setError(test));
     }
     setinputValue('');
 } catch (err) {

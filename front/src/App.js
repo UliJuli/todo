@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 
 import ToDoPage from './pages/Todo';
 import Loader from './components/Loader';
+import Errors from './components/Errors';
 
 import './App.css';
 
@@ -11,6 +12,7 @@ function App() {
     <div className="App">
       { isLoader && <Loader></Loader> }
      <ToDoPage />
+     <Errors />
     </div>
   );
 }

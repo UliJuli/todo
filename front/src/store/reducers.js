@@ -2,7 +2,8 @@ import { todoTypes } from "./type";
 
 const initState = {
     todoList: [],
-    isLoader: false
+    isLoader: false,
+    error: false
 }
 
 export const reducers = (state = initState, action) => {
@@ -28,6 +29,8 @@ export const reducers = (state = initState, action) => {
         case todoTypes.LOADER:
             const states = action.payload.bool
             return { ...state, isLoader: states };
+            case todoTypes.ERROR:
+      return { ...state, error: action.payload.msg };
         default:
             return state;
     }
