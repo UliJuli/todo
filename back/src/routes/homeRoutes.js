@@ -28,14 +28,12 @@ router.post('/api/add', isImitate, async (req, res) => {
   }
 })
 
-router.put('/api/change/:id', isImitate, async (req, res) => {
+router.put('/api/change/:id', async (req, res) => {
   const { id } = req.params;
-  console.log(111111111111111111)
   try {
     const list = await List.findByPk(id);
     const stat = !list.status;
     await list.update({ status: stat });
-    console.log(22222222222222222222222)
     res.status(200).end();
   } catch (error) {
     console.log(error);
@@ -43,7 +41,7 @@ router.put('/api/change/:id', isImitate, async (req, res) => {
   }
 })
 
-router.delete('/api/delete/:id', isImitate, async (req, res) => {
+router.delete('/api/delete/:id', async (req, res) => {
   const { id } = req.params;
   try {
     await List.destroy({ where: { id } });

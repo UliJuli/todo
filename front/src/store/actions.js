@@ -18,17 +18,8 @@ export const deleteHandlerThunk = (id) => async (dispatch) => {
             method: 'DELETE',
             credentials: 'include',
           })
-          while(res.status === 500) {
-             res = await fetch(`http://localhost:3100/api/delete/${id}`, {
-              method: 'DELETE',
-              credentials: 'include',
-            })
-          }
           if(res.status === 200 ) {
             dispatch(deleteTodo(id));
-          }
-          if(res.status === 400){
-            dispatch(setError('test'));
           }
         } catch (err) {
             console.error("Err", err);
@@ -47,18 +38,8 @@ export const deleteHandlerThunk = (id) => async (dispatch) => {
             method: 'PUT',
             credentials: 'include',
         })
-        while(res.status === 500) {
-          res = await fetch(`http://localhost:3100/api/change/${id}`, {
-            method: 'PUT',
-            credentials: 'include',
-        })
-        console.log(res.status)
-        }
         if(res.status === 200 ) {
           dispatch(doneTodo(id));
-        }
-        if(res.status === 400){
-          dispatch(setError(test));
         }
     } catch (err) {
         console.error("Err", err);
@@ -71,6 +52,7 @@ export const deleteHandlerThunk = (id) => async (dispatch) => {
 
   export const addToDoThunk = (e, setinputValue) => async (dispatch) => {
     const text = e.target.previousSibling.value;
+    console.log(text)
     dispatch(loadLoader(true));
     dispatch(setError(false));
   try {
@@ -103,12 +85,12 @@ export const deleteHandlerThunk = (id) => async (dispatch) => {
     if(res.status === 400){
       dispatch(setError(test));
     }
-    setinputValue('');
 } catch (err) {
     console.error("Err", err);
     dispatch(setError(err.message));
   } finally {
     console.log('finally');
     dispatch(loadLoader(false));
+    setinputValue('');
   }
   };
