@@ -65,7 +65,7 @@ export const deleteHandlerThunk = (id) => async (dispatch) => {
       body: JSON.stringify({text})
     })
     if(res.status === 500) {
-      const res = await fetch('http://localhost:3100/api/add', {
+      await fetch('http://localhost:3100/api/add', {
       method: 'POST',
       credentials: 'include',
       headers: {
